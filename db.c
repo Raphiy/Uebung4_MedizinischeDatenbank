@@ -11,6 +11,8 @@
 #include "db.h"
 #include "analyse.h"
 
+#define MAX 5
+
 void initialize_db(){
 
 	//Eingabe vordefinierter Patienten Informationen
@@ -57,8 +59,8 @@ void initialize_db(){
     strcpy(Patient5.Nachname,"Schäfer");
     Patient5.Alter = 43;
     Patient5.Geschlecht = 'm';
-    Patient5.Gewicht = 120;
-    Patient5.Koerpergroesse = 180;
+    Patient5.Gewicht = 90;
+    Patient5.Koerpergroesse = 182;
     strcpy(Patient5.letzte_Lymphknotenuntersuchung, "12.04.2018");
 
     //Einfügen der Patienten in Patienten Datenbank

@@ -8,6 +8,8 @@
 #ifndef DB_H_
 #define DB_H_
 
+#define MAX 5
+
  // Datenbankinhalte und weitere benötigten Variablen definieren
 
 typedef struct{
@@ -15,7 +17,7 @@ typedef struct{
 	char Vorname[32];
 	int Alter;
 	char Geschlecht;
-	int Gewicht;
+	long int Gewicht;
 	int Koerpergroesse;
 	union{
 		char letzte_Lymphknotenuntersuchung[11];

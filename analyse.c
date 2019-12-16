@@ -22,7 +22,7 @@ float compute_bmi(patient p){
 
 //Überprüfen ob BMI im Risikobereich liegt
 void identify_risks(){
-	for(int i = 0; i < 100; i++){
+	for(int i = 0; i < MAX; i++){
 		if(compute_bmi(patienten_db[i]) < 20 || compute_bmi(patienten_db[i]) > 25){
 			printf("[%d] %s %s\n", i, patienten_db[i].Vorname, patienten_db[i].Nachname);
 		}
@@ -38,7 +38,7 @@ float compute_bmip(patient *pointer){
 
 //Risikopatienten ab bestimmter Patientennummer ausgeben
 void identify_risk_group(patient *patients, int size){
-	for(int i = size; i < 100; i++){
+	for(int i = size; i < MAX; i++){
 		if(compute_bmip(patients + i) < 20 || compute_bmip(patients + i) > 25){
 			printf("[%d] %s %s\n", i, (patients[i]).Vorname, (patients[i]).Nachname);
 		}
@@ -47,7 +47,7 @@ void identify_risk_group(patient *patients, int size){
 
 //Alle schwangeren Patientinnen ausgeben
 void identify_pregnant(){
-	for(int i = 0; i < 100; i++){
+	for(int i = 0; i < MAX; i++){
 		if(patienten_db[i].istSchwanger == 1){
 			printf("[%d] %s %s\n", i, patienten_db[i].Vorname, patienten_db[i].Nachname);
 		}
@@ -56,7 +56,7 @@ void identify_pregnant(){
 
 //Alle Patienten mit fehlender Untersuchung ausgeben
 void identify_missing_examination(){
-	for(int i = 0; i < 100; i++){
+	for(int i = 0; i < MAX; i++){
 			if(!strcmp(patienten_db[i].letzte_Lymphknotenuntersuchung, "unbekannt") || !strcmp(patienten_db[i].letzte_Brustuntersuchung, "unbekannt")){
 				printf("[%d] %s %s\n", i, patienten_db[i].Vorname, patienten_db[i].Nachname);
 			}
@@ -65,13 +65,13 @@ void identify_missing_examination(){
 
 //Patienteninfos von gesuchtem Nachnamen ausgeben
 void search_by_name(char name[]){
-	for(int i = 0;i < 100; i++){
+	for(int i = 0;i < MAX; i++){
 		if(!strcmp(patienten_db[i].Nachname, name)){
 			printf("Vorname: %s\n", patienten_db[i].Vorname);
 			printf("Nachname: %s\n", patienten_db[i].Nachname);
 			printf("Alter: %d\n", patienten_db[i].Alter);
 			printf("Geschlecht: %c\n", patienten_db[i].Geschlecht);
-			printf("Gewicht: %d\n", patienten_db[i].Gewicht);
+			printf("Gewicht: %ld\n", patienten_db[i].Gewicht);
 			printf("Koerpergroesse: %d\n", patienten_db[i].Koerpergroesse);
 			if(patienten_db[i].Geschlecht == 'm'){
 				printf("Letzte Lymphknotenuntersuchung: %s\n", patienten_db[i].letzte_Lymphknotenuntersuchung);
