@@ -75,7 +75,7 @@ int main(){
 				eingabe2 = 0;
 				break;
 			default:
-				printf("Ungueltige Zahl\n");
+				printf("Ungültige Zahl\n");
 				eingabe2 = 0;
 				break;
 		}
@@ -90,6 +90,6 @@ int main(){
 
 void zurueck(){ //Zurück zum Hauptmenü oder Beenden
 	eingabe = 0;
-	printf("Hauptmenue: 1     Beenden: 0\n");
+	printf("Hauptmenü: 1     Beenden: 0\n");
 	scanf("%d", &eingabe2);
 }
