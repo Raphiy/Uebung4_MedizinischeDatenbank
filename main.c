@@ -1,8 +1,8 @@
 /*
  * main.c
  *
- *  Created on: 27.11.2019
- *      Author: Peter
+ *  Created on: 01.12.2019
+ *      Author: Froemberg Raphael
  */
 
 #include <stdio.h>
