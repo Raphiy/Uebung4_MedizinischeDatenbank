@@ -11,12 +11,16 @@
 #include "db.h"
 #include "analyse.h"
 
+//Ausprogrammieren der verfügbaren Funktionen
+
+//Berrechnung des BMI
 float compute_bmi(patient p){
 	float bmi;
 	bmi = p.Gewicht / ((p.Koerpergroesse / 100.00) * (p.Koerpergroesse / 100.00));
 	return bmi;
 }
 
+//Überprüfen ob BMI im Risikobereich liegt
 void identify_risks(){
 	for(int i = 0; i < 100; i++){
 		if(compute_bmi(patienten_db[i]) < 20 || compute_bmi(patienten_db[i]) > 25){
@@ -25,12 +29,14 @@ void identify_risks(){
 	}
 }
 
+//Berrechnung BMI durch Pointer
 float compute_bmip(patient *pointer){
 	float bmi;
 	bmi = (*pointer).Gewicht / (((*pointer).Koerpergroesse / 100.00) * ((*pointer).Koerpergroesse / 100.00));
 	return bmi;
 }
 
+//Risikopatienten ab bestimmter Patientennummer ausgeben
 void identify_risk_group(patient *patients, int size){
 	for(int i = size; i < 100; i++){
 		if(compute_bmip(patients + i) < 20 || compute_bmip(patients + i) > 25){
@@ -39,6 +45,7 @@ void identify_risk_group(patient *patients, int size){
 	}
 }
 
+//Alle schwangeren Patientinnen ausgeben
 void identify_pregnant(){
 	for(int i = 0; i < 100; i++){
 		if(patienten_db[i].istSchwanger == 1){
@@ -47,6 +54,7 @@ void identify_pregnant(){
 	}
 }
 
+//Alle Patienten mit fehlender Untersuchung ausgeben
 void identify_missing_examination(){
 	for(int i = 0; i < 100; i++){
 			if(!strcmp(patienten_db[i].letzte_Lymphknotenuntersuchung, "unbekannt") || !strcmp(patienten_db[i].letzte_Brustuntersuchung, "unbekannt")){
@@ -55,6 +63,7 @@ void identify_missing_examination(){
 		}
 }
 
+//Patienteninfos von gesuchtem Nachnamen ausgeben
 void search_by_name(char name[]){
 	for(int i = 0;i < 100; i++){
 		if(!strcmp(patienten_db[i].Nachname, name)){

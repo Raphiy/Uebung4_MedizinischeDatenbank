@@ -8,6 +8,7 @@
 #ifndef ANALYSE_H_
 #define ANALYSE_H_
 
+//Definieren der verfügbaren Funktionen
 float compute_bmi();
 void identify_risks();
 float compute_bmip();

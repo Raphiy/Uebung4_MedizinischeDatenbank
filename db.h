@@ -8,6 +8,8 @@
 #ifndef DB_H_
 #define DB_H_
 
+ // Datenbankinhalte und weitere benötigten Variablen definieren
+
 typedef struct{
 	char Nachname[32];
 	char Vorname[32];

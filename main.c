@@ -21,9 +21,9 @@ char a[32];
 
 int main(){
 	setvbuf(stdout, NULL, _IONBF,0);
-	initialize_db();
+	initialize_db(); //Datenbank initialisieren
 	printf("Willkommen!\n");
-	while(eingabe2){
+	while(eingabe2){ //Ausgabe der verschiedenen vorhandenen Funktionen
 		printf("Bitte geben Sie die Zahl der Funktion ein, die Sie aufrufen wollen.\n");
 		printf("1: compute_bmi\n");
 		printf("2: identify_risks\n");
@@ -34,7 +34,7 @@ int main(){
 		printf("7: search_by_name\n");
 		printf("0: Verlassen\n");
 		scanf("%d", &eingabe);
-		switch(eingabe){
+		switch(eingabe){ //Auswahl der vom User ausgewählten Funktion
 			case 1:
 				printf("Bitte Patientennummer eingeben:\n");
 				scanf("%d", &eingabe3);
@@ -88,8 +88,8 @@ int main(){
 	return 0;
 }
 
-void zurueck(){
+void zurueck(){ //Zurück zum Hauptmenü oder Beenden
 	eingabe = 0;
-	printf("Hauptmenue: 1     Verlassen: 0\n");
+	printf("Hauptmenue: 1     Beenden: 0\n");
 	scanf("%d", &eingabe2);
 }
